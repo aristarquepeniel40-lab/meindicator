@@ -13,7 +13,8 @@ me_indicator_recipe(
     stop(sprintf("S3 class <\%s> doesn't have a constructor", class[[1]]), call. =
     FALSE)
  })(),
-  unit = character(0)
+  unit = character(0),
+  group_by = character(0)
 )
 }
 \arguments{
@@ -25,6 +26,10 @@ dans \code{project@datasets}).}
 \item{formula}{Formule R a evaluer (ex. \code{~ mean(age)}).}
 
 \item{unit}{Unite de mesure.}
+
+\item{group_by}{Colonne de regroupement optionnelle (ex. "region").
+Si fournie, produit UN indicateur par modalite plutot qu'une seule
+valeur globale (voir \code{compute_indicator_by_group()}).}
 }
 \description{
 Decrit COMMENT calculer un indicateur (quel dataset, quelle formule,

@@ -16,6 +16,6 @@ Le \code{mecore::me_project} mis a jour (nouveaux indicateurs ajoutes).
 }
 \description{
 Pour chaque recette, retrouve le \code{me_dataset} correspondant dans
-\code{project@datasets} (par nom), calcule l'indicateur, et l'ajoute a
-\code{project@indicators}.
+\code{project@datasets} (par nom), calcule l'indicateur (ou les indicateurs,
+si \code{group_by} est renseigne), et l'ajoute a \code{project@indicators}.
 }
