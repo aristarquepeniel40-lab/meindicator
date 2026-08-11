@@ -42,3 +42,42 @@ test_that("le generique mecore::compute_indicators() dispatche vers me_project",
   p2 <- p |> mecore::compute_indicators(recipes = rec)
   expect_equal(length(p2@indicators), 1)
 })
+
+test_that("compute_indicator_by_group produit un indicateur par modalite", {
+  meta <- mecore::me_metadata(
+    project_name = "p", organization = "o", country = "c", donor = "d", manager = "m",
+    start_date = Sys.Date(), end_date = Sys.Date() + 1,
+    version = "0.1", description = "d", objectives = "o", sdgs = character(0)
+  )
+  d <- mecore::me_dataset(
+    name = "d1",
+    data = data.frame(age = c(20, 22, 25, 31), sexe = c("F", "F", "M", "M")),
+    metadata = meta
+  )
+  inds <- compute_indicator_by_group(d, group_by = "sexe", formula = ~ mean(age), label = "Age moyen", unit = "annees")
+  expect_equal(length(inds), 2)
+  expect_equal(inds[[1]]@value, 21)   # F : mean(20,22)
+  expect_equal(inds[[2]]@value, 28)   # M : mean(25,31)
+})
+
+test_that("compute_indicator_by_group signale une colonne de regroupement absente", {
+  meta <- mecore::me_metadata(
+    project_name = "p", organization = "o", country = "c", donor = "d", manager = "m",
+    start_date = Sys.Date(), end_date = Sys.Date() + 1,
+    version = "0.1", description = "d", objectives = "o", sdgs = character(0)
+  )
+  d <- mecore::me_dataset(name = "d1", data = data.frame(age = c(20, 22)), metadata = meta)
+  expect_error(
+    compute_indicator_by_group(d, group_by = "inexistante", formula = ~ mean(age), label = "x", unit = "u"),
+    regexp = "introuvable"
+  )
+})
+
+test_that("compute_project_indicators avec group_by desagrege correctement", {
+  p <- helper_project()
+  rec <- list(me_indicator_recipe(dataset_name = "d1", label = "Age moyen",
+                                    formula = ~ mean(age), unit = "annees", group_by = character(0)))
+  # sans group_by : comportement inchange (retrocompatibilite)
+  p2 <- compute_project_indicators(p, rec)
+  expect_equal(length(p2@indicators), 1)
+})
