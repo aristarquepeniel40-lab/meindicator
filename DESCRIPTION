@@ -20,3 +20,5 @@ Collate:
     '01_recipe.R'
     '02_methods.R'
     'zzz.R'
+Remotes:
+    aristarquepeniel40-lab/mecore
