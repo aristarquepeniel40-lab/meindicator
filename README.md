@@ -1,5 +1,7 @@
 # meindicator
 
+[![R-CMD-check](https://github.com/aristarquepeniel40-lab/meindicator/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aristarquepeniel40-lab/meindicator/actions/workflows/R-CMD-check.yaml)
+
 **Calcul d'indicateurs pour l'écosystème [MEverse](https://github.com/aristarquepeniel40-lab/mecore).**
 
 Calcule des `mecore::me_indicator` à partir de `mecore::me_dataset` et
