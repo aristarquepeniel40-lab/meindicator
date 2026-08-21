@@ -1,6 +1,6 @@
 Package: meindicator
 Title: Calcul d'indicateurs pour l'ecosysteme MEverse
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: person("Aristarque Peniel", "Segue", email = "vous@example.com", role = c("aut", "cre"))
 Description: Calcule des me_indicator (definis dans mecore) a partir de
     me_dataset et de formules. Ne definit aucune nouvelle classe de
@@ -10,7 +10,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 8.0.0
 Imports:
-    mecore (>= 0.0.0.9000),
+    mecore (>= 1.0.0),
     S7 (>= 0.2.0)
 Suggests:
     testthat (>= 3.0.0)
