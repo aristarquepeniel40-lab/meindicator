@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/aristarquepeniel40-lab/meindicator/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/aristarquepeniel40-lab/meindicator/blob/v1.0.0/DESCRIPTION)
 
 Segue A (2026). *meindicator: Calcul d'indicateurs pour l'ecosysteme
 MEverse*. R package version 1.0.0,
